@@ -1,0 +1,12 @@
+[
+  {
+    "ContainingType": "PC_Build_Backend.Controllers.AdminController",
+    "Method": "Login",
+    "RelativePath": "Admin/Login",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  }
+]

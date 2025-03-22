@@ -1,0 +1,12 @@
+D:\PC Build Backend\PC Build DatabaseFactory\bin\Debug\net8.0\PC Build DatabaseFactory.deps.json
+D:\PC Build Backend\PC Build DatabaseFactory\bin\Debug\net8.0\PC Build DatabaseFactory.dll
+D:\PC Build Backend\PC Build DatabaseFactory\bin\Debug\net8.0\PC Build DatabaseFactory.pdb
+D:\PC Build Backend\PC Build DatabaseFactory\obj\Debug\net8.0\PC Build DatabaseFactory.csproj.AssemblyReference.cache
+D:\PC Build Backend\PC Build DatabaseFactory\obj\Debug\net8.0\PC Build DatabaseFactory.GeneratedMSBuildEditorConfig.editorconfig
+D:\PC Build Backend\PC Build DatabaseFactory\obj\Debug\net8.0\PC Build DatabaseFactory.AssemblyInfoInputs.cache
+D:\PC Build Backend\PC Build DatabaseFactory\obj\Debug\net8.0\PC Build DatabaseFactory.AssemblyInfo.cs
+D:\PC Build Backend\PC Build DatabaseFactory\obj\Debug\net8.0\PC Build DatabaseFactory.csproj.CoreCompileInputs.cache
+D:\PC Build Backend\PC Build DatabaseFactory\obj\Debug\net8.0\PC Build DatabaseFactory.dll
+D:\PC Build Backend\PC Build DatabaseFactory\obj\Debug\net8.0\refint\PC Build DatabaseFactory.dll
+D:\PC Build Backend\PC Build DatabaseFactory\obj\Debug\net8.0\PC Build DatabaseFactory.pdb
+D:\PC Build Backend\PC Build DatabaseFactory\obj\Debug\net8.0\ref\PC Build DatabaseFactory.dll
