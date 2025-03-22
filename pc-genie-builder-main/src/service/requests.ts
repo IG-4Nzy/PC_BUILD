@@ -1,13 +1,10 @@
 import axios from "axios";
 const BASE_URL = `http://localhost:5104/`;
 
-export const adminLogin = async () => {
+export const adminLogin = async (body: { userId: string; name: string }) => {
   try {
-    const res = await axios.get(`${BASE_URL}Admin/Login`, {
-      withCredentials: true,
-      headers: {
-        "Content-Type": "application/json"
-      }
+    const res = await axios.post(`${BASE_URL}Admin/Login`, {
+      body
     });
     console.log(res.data);
   } catch (error) {
