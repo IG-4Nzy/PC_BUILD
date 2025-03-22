@@ -1778,11 +1778,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\PC Build Backend\\PC Build Backend\\PC Build Backend.csproj",
+      "projectUniqueName": "D:\\PC_BUILD\\PC Build Backend\\PC Build Backend\\PC Build Backend.csproj",
       "projectName": "PC Build Backend",
-      "projectPath": "D:\\PC Build Backend\\PC Build Backend\\PC Build Backend.csproj",
+      "projectPath": "D:\\PC_BUILD\\PC Build Backend\\PC Build Backend\\PC Build Backend.csproj",
       "packagesPath": "C:\\Users\\muhda\\.nuget\\packages\\",
-      "outputPath": "D:\\PC Build Backend\\PC Build Backend\\obj\\",
+      "outputPath": "D:\\PC_BUILD\\PC Build Backend\\PC Build Backend\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -1803,11 +1803,11 @@
         "net8.0": {
           "targetAlias": "net8.0",
           "projectReferences": {
-            "D:\\PC Build Backend\\PC Build Models\\PC Build Models.csproj": {
-              "projectPath": "D:\\PC Build Backend\\PC Build Models\\PC Build Models.csproj"
+            "D:\\PC_BUILD\\PC Build Backend\\PC Build Models\\PC Build Models.csproj": {
+              "projectPath": "D:\\PC_BUILD\\PC Build Backend\\PC Build Models\\PC Build Models.csproj"
             },
-            "D:\\PC Build Backend\\PC Build Service\\PC Build Service.csproj": {
-              "projectPath": "D:\\PC Build Backend\\PC Build Service\\PC Build Service.csproj"
+            "D:\\PC_BUILD\\PC Build Backend\\PC Build Service\\PC Build Service.csproj": {
+              "projectPath": "D:\\PC_BUILD\\PC Build Backend\\PC Build Service\\PC Build Service.csproj"
             }
           }
         }

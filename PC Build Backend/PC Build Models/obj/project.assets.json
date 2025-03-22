@@ -14,11 +14,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\PC Build Backend\\PC Build Models\\PC Build Models.csproj",
+      "projectUniqueName": "D:\\PC_BUILD\\PC Build Backend\\PC Build Models\\PC Build Models.csproj",
       "projectName": "PC Build Models",
-      "projectPath": "D:\\PC Build Backend\\PC Build Models\\PC Build Models.csproj",
+      "projectPath": "D:\\PC_BUILD\\PC Build Backend\\PC Build Models\\PC Build Models.csproj",
       "packagesPath": "C:\\Users\\muhda\\.nuget\\packages\\",
-      "outputPath": "D:\\PC Build Backend\\PC Build Models\\obj\\",
+      "outputPath": "D:\\PC_BUILD\\PC Build Backend\\PC Build Models\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

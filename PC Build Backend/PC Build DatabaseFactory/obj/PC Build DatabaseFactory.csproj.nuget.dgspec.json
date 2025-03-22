@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\PC Build Backend\\PC Build DatabaseFactory\\PC Build DatabaseFactory.csproj": {}
+    "D:\\PC_BUILD\\PC Build Backend\\PC Build DatabaseFactory\\PC Build DatabaseFactory.csproj": {}
   },
   "projects": {
-    "D:\\PC Build Backend\\PC Build DatabaseFactory\\PC Build DatabaseFactory.csproj": {
+    "D:\\PC_BUILD\\PC Build Backend\\PC Build DatabaseFactory\\PC Build DatabaseFactory.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\PC Build Backend\\PC Build DatabaseFactory\\PC Build DatabaseFactory.csproj",
+        "projectUniqueName": "D:\\PC_BUILD\\PC Build Backend\\PC Build DatabaseFactory\\PC Build DatabaseFactory.csproj",
         "projectName": "PC Build DatabaseFactory",
-        "projectPath": "D:\\PC Build Backend\\PC Build DatabaseFactory\\PC Build DatabaseFactory.csproj",
+        "projectPath": "D:\\PC_BUILD\\PC Build Backend\\PC Build DatabaseFactory\\PC Build DatabaseFactory.csproj",
         "packagesPath": "C:\\Users\\muhda\\.nuget\\packages\\",
-        "outputPath": "D:\\PC Build Backend\\PC Build DatabaseFactory\\obj\\",
+        "outputPath": "D:\\PC_BUILD\\PC Build Backend\\PC Build DatabaseFactory\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
