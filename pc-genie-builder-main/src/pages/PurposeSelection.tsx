@@ -9,17 +9,23 @@ import {
   SquareDashedBottom,
   Laptop,
   MoreHorizontal,
-  ChevronRight
+  ChevronRight,
+  X
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useToast } from "@/components/ui/use-toast";
 import { adminLogin } from "@/service/requests";
+import CustomModal from "@/components/CustomModal";
+import { Input } from "@mui/material";
 
 const PurposeSelection = () => {
   const navigate = useNavigate();
   const { toast } = useToast();
   const { setSelectedPurpose } = useAppContext();
   const [selectedOption, setSelectedOption] = useState<string | null>(null);
+  const [adminLoginModal, setAdminLoginModal] = useState(false);
+  const [userId, setUserId] = useState("");
+  const [password, setPassword] = useState("");
 
   const purposes = [
     {
@@ -68,6 +74,10 @@ const PurposeSelection = () => {
     setSelectedOption(id);
   };
 
+  const handleLogin = () => {
+    adminLogin({ userId: userId, password: password });
+  };
+
   const handleContinue = () => {
     if (selectedOption) {
       setSelectedPurpose(selectedOption as any);
@@ -96,12 +106,74 @@ const PurposeSelection = () => {
     show: { y: 0, opacity: 1 }
   };
 
-  useEffect(() => {
-    adminLogin();
-  }, []);
-
   return (
     <div className="min-h-screen bg-background pt-12 px-4 sm:px-6 lg:px-8">
+      <label onClick={() => setAdminLoginModal(true)}>admin</label>
+      {adminLoginModal && (
+        <CustomModal
+          open={adminLoginModal}
+          handleClose={() => setAdminLoginModal(false)}
+        >
+          <motion.div
+            initial={{ opacity: 0, scale: 0.9 }}
+            animate={{ opacity: 1, scale: 1 }}
+            exit={{ opacity: 0, scale: 0.9 }}
+            transition={{ duration: 0.3 }}
+            className="bg-white dark:bg-gray-900 w-[400px] p-6 rounded-xl shadow-lg relative"
+          >
+            <button
+              onClick={() => setAdminLoginModal(false)}
+              className="absolute top-4 right-4 text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-200"
+            >
+              <X size={20} />
+            </button>
+
+            <h2 className="text-2xl font-semibold text-gray-800 dark:text-white text-center mb-4">
+              Admin Login
+            </h2>
+
+            <div className="mb-4">
+              <label
+                htmlFor="userId"
+                className="block text-sm text-gray-600 dark:text-gray-300"
+              >
+                User ID
+              </label>
+              <Input
+                id="userId"
+                type="text"
+                placeholder="Enter your user ID"
+                value={userId}
+                onChange={(e) => setUserId(e.target.value)}
+                className="w-full text-white border rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-primary"
+              />
+            </div>
+
+            {/* Password Input */}
+            <div className="mb-6">
+              <label
+                htmlFor="password"
+                className="block text-sm  text-gray-600 dark:text-gray-300"
+              >
+                Password
+              </label>
+              <Input
+                id="password"
+                type="password"
+                placeholder="Enter your password"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+                className="w-full border text-white rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-primary"
+              />
+            </div>
+
+            {/* Login Button */}
+            <Button onClick={handleLogin} className="w-full py-3 text-lg">
+              Login
+            </Button>
+          </motion.div>
+        </CustomModal>
+      )}
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-12">
           <motion.h1
