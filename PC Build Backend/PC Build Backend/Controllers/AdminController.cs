@@ -1,4 +1,5 @@
 using Microsoft.AspNetCore.Mvc;
+using PC_Build_Models;
 using PC_Build_Service;
 
 namespace PC_Build_Backend.Controllers
@@ -9,11 +10,11 @@ namespace PC_Build_Backend.Controllers
     {
         private readonly IAdminService adminService = adminService;
 
-        [HttpGet]
+        [HttpPost]
         [Route("Login")]
-        public IActionResult Login()
+        public IActionResult Login(LoginData loginData)
         {
-            return Ok("Hello");
+            return adminService.Login(loginData) ? Ok() : Unauthorized();
         }
     }
-}
+} 

@@ -7,8 +7,8 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 
-builder.Services.AddSingleton<IAdminDAL, AdminDAL>();
 builder.Services.AddSingleton<IAdminService, AdminService>();
+builder.Services.AddSingleton<IAdminDAL, AdminDAL>();
 builder.Services.AddSingleton<IDatabaseFactory, MySqlDatabaseFactory>();
 
 builder.Services.AddCors(options =>

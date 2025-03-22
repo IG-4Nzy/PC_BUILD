@@ -20,11 +20,6 @@ namespace PC_Build_DatabaseFactory
             return connection;
         }
 
-        public IDbCommand CreateCommand(IDbConnection connection)
-        {
-            return connection.CreateCommand();
-        }
-
         public IDbDataParameter CreateDataParameter(string parameterName, object value)
         {
             return new MySqlParameter(parameterName, value);
