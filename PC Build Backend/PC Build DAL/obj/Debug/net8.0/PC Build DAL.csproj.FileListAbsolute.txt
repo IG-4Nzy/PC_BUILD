@@ -15,3 +15,21 @@ D:\PC Build Backend\PC Build DAL\obj\Debug\net8.0\PC Build DAL.dll
 D:\PC Build Backend\PC Build DAL\obj\Debug\net8.0\refint\PC Build DAL.dll
 D:\PC Build Backend\PC Build DAL\obj\Debug\net8.0\PC Build DAL.pdb
 D:\PC Build Backend\PC Build DAL\obj\Debug\net8.0\ref\PC Build DAL.dll
+D:\PC_BUILD\PC Build Backend\PC Build DAL\bin\Debug\net8.0\PC Build DAL.deps.json
+D:\PC_BUILD\PC Build Backend\PC Build DAL\bin\Debug\net8.0\PC Build DAL.dll
+D:\PC_BUILD\PC Build Backend\PC Build DAL\bin\Debug\net8.0\PC Build DAL.pdb
+D:\PC_BUILD\PC Build Backend\PC Build DAL\bin\Debug\net8.0\PC Build DatabaseFactory.dll
+D:\PC_BUILD\PC Build Backend\PC Build DAL\bin\Debug\net8.0\PC Build Models.dll
+D:\PC_BUILD\PC Build Backend\PC Build DAL\bin\Debug\net8.0\PC Build DatabaseFactory.pdb
+D:\PC_BUILD\PC Build Backend\PC Build DAL\bin\Debug\net8.0\PC Build Models.pdb
+D:\PC_BUILD\PC Build Backend\PC Build DAL\obj\Debug\net8.0\PC Build DAL.csproj.AssemblyReference.cache
+D:\PC_BUILD\PC Build Backend\PC Build DAL\obj\Debug\net8.0\PC Build DAL.GeneratedMSBuildEditorConfig.editorconfig
+D:\PC_BUILD\PC Build Backend\PC Build DAL\obj\Debug\net8.0\PC Build DAL.AssemblyInfoInputs.cache
+D:\PC_BUILD\PC Build Backend\PC Build DAL\obj\Debug\net8.0\PC Build DAL.AssemblyInfo.cs
+D:\PC_BUILD\PC Build Backend\PC Build DAL\obj\Debug\net8.0\PC Build DAL.csproj.CoreCompileInputs.cache
+D:\PC_BUILD\PC Build Backend\PC Build DAL\obj\Debug\net8.0\PC Build DAL.sourcelink.json
+D:\PC_BUILD\PC Build Backend\PC Build DAL\obj\Debug\net8.0\PC Build.67EC2AFF.Up2Date
+D:\PC_BUILD\PC Build Backend\PC Build DAL\obj\Debug\net8.0\PC Build DAL.dll
+D:\PC_BUILD\PC Build Backend\PC Build DAL\obj\Debug\net8.0\refint\PC Build DAL.dll
+D:\PC_BUILD\PC Build Backend\PC Build DAL\obj\Debug\net8.0\PC Build DAL.pdb
+D:\PC_BUILD\PC Build Backend\PC Build DAL\obj\Debug\net8.0\ref\PC Build DAL.dll

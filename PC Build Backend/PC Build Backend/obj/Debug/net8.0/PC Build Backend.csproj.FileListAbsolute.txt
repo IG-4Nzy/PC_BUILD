@@ -61,3 +61,67 @@ D:\PC Build Backend\PC Build Backend\bin\Debug\net8.0\PC Build DAL.pdb
 D:\PC Build Backend\PC Build Backend\bin\Debug\net8.0\PC Build DatabaseFactory.pdb
 D:\PC Build Backend\PC Build Backend\obj\Debug\net8.0\PC Build Backend.csproj.AssemblyReference.cache
 D:\PC Build Backend\PC Build Backend\obj\Debug\net8.0\PC Build.54B9E7ED.Up2Date
+D:\PC_BUILD\PC Build Backend\PC Build Backend\bin\Debug\net8.0\appsettings.Development.json
+D:\PC_BUILD\PC Build Backend\PC Build Backend\bin\Debug\net8.0\appsettings.json
+D:\PC_BUILD\PC Build Backend\PC Build Backend\bin\Debug\net8.0\PC Build Backend.staticwebassets.endpoints.json
+D:\PC_BUILD\PC Build Backend\PC Build Backend\bin\Debug\net8.0\PC Build Backend.staticwebassets.runtime.json
+D:\PC_BUILD\PC Build Backend\PC Build Backend\bin\Debug\net8.0\PC Build Backend.exe
+D:\PC_BUILD\PC Build Backend\PC Build Backend\bin\Debug\net8.0\PC Build Backend.deps.json
+D:\PC_BUILD\PC Build Backend\PC Build Backend\bin\Debug\net8.0\PC Build Backend.runtimeconfig.json
+D:\PC_BUILD\PC Build Backend\PC Build Backend\bin\Debug\net8.0\PC Build Backend.dll
+D:\PC_BUILD\PC Build Backend\PC Build Backend\bin\Debug\net8.0\PC Build Backend.pdb
+D:\PC_BUILD\PC Build Backend\PC Build Backend\bin\Debug\net8.0\BouncyCastle.Cryptography.dll
+D:\PC_BUILD\PC Build Backend\PC Build Backend\bin\Debug\net8.0\Google.Protobuf.dll
+D:\PC_BUILD\PC Build Backend\PC Build Backend\bin\Debug\net8.0\K4os.Compression.LZ4.dll
+D:\PC_BUILD\PC Build Backend\PC Build Backend\bin\Debug\net8.0\K4os.Compression.LZ4.Streams.dll
+D:\PC_BUILD\PC Build Backend\PC Build Backend\bin\Debug\net8.0\K4os.Hash.xxHash.dll
+D:\PC_BUILD\PC Build Backend\PC Build Backend\bin\Debug\net8.0\Microsoft.Extensions.Configuration.Abstractions.dll
+D:\PC_BUILD\PC Build Backend\PC Build Backend\bin\Debug\net8.0\Microsoft.Extensions.Primitives.dll
+D:\PC_BUILD\PC Build Backend\PC Build Backend\bin\Debug\net8.0\MySql.Data.dll
+D:\PC_BUILD\PC Build Backend\PC Build Backend\bin\Debug\net8.0\System.Configuration.ConfigurationManager.dll
+D:\PC_BUILD\PC Build Backend\PC Build Backend\bin\Debug\net8.0\System.IO.Pipelines.dll
+D:\PC_BUILD\PC Build Backend\PC Build Backend\bin\Debug\net8.0\System.Security.Cryptography.ProtectedData.dll
+D:\PC_BUILD\PC Build Backend\PC Build Backend\bin\Debug\net8.0\System.Security.Permissions.dll
+D:\PC_BUILD\PC Build Backend\PC Build Backend\bin\Debug\net8.0\System.Text.Encodings.Web.dll
+D:\PC_BUILD\PC Build Backend\PC Build Backend\bin\Debug\net8.0\System.Text.Json.dll
+D:\PC_BUILD\PC Build Backend\PC Build Backend\bin\Debug\net8.0\System.Windows.Extensions.dll
+D:\PC_BUILD\PC Build Backend\PC Build Backend\bin\Debug\net8.0\ZstdSharp.dll
+D:\PC_BUILD\PC Build Backend\PC Build Backend\bin\Debug\net8.0\runtimes\win-x64\native\comerr64.dll
+D:\PC_BUILD\PC Build Backend\PC Build Backend\bin\Debug\net8.0\runtimes\win-x64\native\gssapi64.dll
+D:\PC_BUILD\PC Build Backend\PC Build Backend\bin\Debug\net8.0\runtimes\win-x64\native\k5sprt64.dll
+D:\PC_BUILD\PC Build Backend\PC Build Backend\bin\Debug\net8.0\runtimes\win-x64\native\krb5_64.dll
+D:\PC_BUILD\PC Build Backend\PC Build Backend\bin\Debug\net8.0\runtimes\win-x64\native\krbcc64.dll
+D:\PC_BUILD\PC Build Backend\PC Build Backend\bin\Debug\net8.0\runtimes\browser\lib\net8.0\System.Text.Encodings.Web.dll
+D:\PC_BUILD\PC Build Backend\PC Build Backend\bin\Debug\net8.0\runtimes\win\lib\net8.0\System.Windows.Extensions.dll
+D:\PC_BUILD\PC Build Backend\PC Build Backend\bin\Debug\net8.0\PC Build DAL.dll
+D:\PC_BUILD\PC Build Backend\PC Build Backend\bin\Debug\net8.0\PC Build DatabaseFactory.dll
+D:\PC_BUILD\PC Build Backend\PC Build Backend\bin\Debug\net8.0\PC Build Models.dll
+D:\PC_BUILD\PC Build Backend\PC Build Backend\bin\Debug\net8.0\PC Build Service.dll
+D:\PC_BUILD\PC Build Backend\PC Build Backend\bin\Debug\net8.0\PC Build Models.pdb
+D:\PC_BUILD\PC Build Backend\PC Build Backend\bin\Debug\net8.0\PC Build Service.pdb
+D:\PC_BUILD\PC Build Backend\PC Build Backend\bin\Debug\net8.0\PC Build DAL.pdb
+D:\PC_BUILD\PC Build Backend\PC Build Backend\bin\Debug\net8.0\PC Build DatabaseFactory.pdb
+D:\PC_BUILD\PC Build Backend\PC Build Backend\obj\Debug\net8.0\PC Build Backend.csproj.AssemblyReference.cache
+D:\PC_BUILD\PC Build Backend\PC Build Backend\obj\Debug\net8.0\PC Build Backend.GeneratedMSBuildEditorConfig.editorconfig
+D:\PC_BUILD\PC Build Backend\PC Build Backend\obj\Debug\net8.0\PC Build Backend.AssemblyInfoInputs.cache
+D:\PC_BUILD\PC Build Backend\PC Build Backend\obj\Debug\net8.0\PC Build Backend.AssemblyInfo.cs
+D:\PC_BUILD\PC Build Backend\PC Build Backend\obj\Debug\net8.0\PC Build Backend.csproj.CoreCompileInputs.cache
+D:\PC_BUILD\PC Build Backend\PC Build Backend\obj\Debug\net8.0\PC Build Backend.MvcApplicationPartsAssemblyInfo.cache
+D:\PC_BUILD\PC Build Backend\PC Build Backend\obj\Debug\net8.0\PC Build Backend.sourcelink.json
+D:\PC_BUILD\PC Build Backend\PC Build Backend\obj\Debug\net8.0\scopedcss\bundle\PC Build Backend.styles.css
+D:\PC_BUILD\PC Build Backend\PC Build Backend\obj\Debug\net8.0\staticwebassets.build.json
+D:\PC_BUILD\PC Build Backend\PC Build Backend\obj\Debug\net8.0\staticwebassets.development.json
+D:\PC_BUILD\PC Build Backend\PC Build Backend\obj\Debug\net8.0\staticwebassets.build.endpoints.json
+D:\PC_BUILD\PC Build Backend\PC Build Backend\obj\Debug\net8.0\staticwebassets\msbuild.PC Build Backend.Microsoft.AspNetCore.StaticWebAssets.props
+D:\PC_BUILD\PC Build Backend\PC Build Backend\obj\Debug\net8.0\staticwebassets\msbuild.PC Build Backend.Microsoft.AspNetCore.StaticWebAssetEndpoints.props
+D:\PC_BUILD\PC Build Backend\PC Build Backend\obj\Debug\net8.0\staticwebassets\msbuild.build.PC Build Backend.props
+D:\PC_BUILD\PC Build Backend\PC Build Backend\obj\Debug\net8.0\staticwebassets\msbuild.buildMultiTargeting.PC Build Backend.props
+D:\PC_BUILD\PC Build Backend\PC Build Backend\obj\Debug\net8.0\staticwebassets\msbuild.buildTransitive.PC Build Backend.props
+D:\PC_BUILD\PC Build Backend\PC Build Backend\obj\Debug\net8.0\staticwebassets.pack.json
+D:\PC_BUILD\PC Build Backend\PC Build Backend\obj\Debug\net8.0\staticwebassets.upToDateCheck.txt
+D:\PC_BUILD\PC Build Backend\PC Build Backend\obj\Debug\net8.0\PC Build.54B9E7ED.Up2Date
+D:\PC_BUILD\PC Build Backend\PC Build Backend\obj\Debug\net8.0\PC Build Backend.dll
+D:\PC_BUILD\PC Build Backend\PC Build Backend\obj\Debug\net8.0\refint\PC Build Backend.dll
+D:\PC_BUILD\PC Build Backend\PC Build Backend\obj\Debug\net8.0\PC Build Backend.pdb
+D:\PC_BUILD\PC Build Backend\PC Build Backend\obj\Debug\net8.0\PC Build Backend.genruntimeconfig.cache
+D:\PC_BUILD\PC Build Backend\PC Build Backend\obj\Debug\net8.0\ref\PC Build Backend.dll

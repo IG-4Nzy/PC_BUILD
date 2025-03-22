@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("PC Build DatabaseFactory")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+7e2af8a14e35283cdbfa66e7386b27df534d5301")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+1e4a372a7cb85305da50ca19296c9e88320057cb")]
 [assembly: System.Reflection.AssemblyProductAttribute("PC Build DatabaseFactory")]
 [assembly: System.Reflection.AssemblyTitleAttribute("PC Build DatabaseFactory")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
