@@ -1,7 +1,10 @@
 import axios from "axios";
 const BASE_URL = `http://localhost:5104/`;
 
-export const adminLogin = async (body: { userId: string; name: string }) => {
+export const adminLogin = async (body: {
+  userId: string;
+  password: string;
+}) => {
   try {
     const res = await axios.post(`${BASE_URL}Admin/Login`, {
       body
