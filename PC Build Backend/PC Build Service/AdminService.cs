@@ -11,5 +11,15 @@ namespace PC_Build_Service
         {
             return adminDal.Login(loginData);
         }
+
+        public Return AddComponent(PcComponet pcComponet)
+        {
+            ExistCheck existCheck = adminDal.IsPcComponetExists(pcComponet.Name);
+            if (ExistCheck.NOT_EXIST != existCheck)
+            {
+                return ExistCheck.EXISTS == existCheck ? Return.DUPLICATE : Return.DB_ERROR;
+            }
+            return Return.OK;
+        }
     }
 }
