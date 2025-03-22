@@ -25,4 +25,4 @@ dist-ssr
 
 **/obj/
 **/bin/
-**/vs/
+**/.vs/
