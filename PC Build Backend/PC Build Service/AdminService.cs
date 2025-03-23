@@ -11,25 +11,5 @@ namespace PC_Build_Service
 		{
 			return adminDal.Login(loginData);
 		}
-
-		public Return AddComponentType(string typeName)
-		{
-			ExistCheck existCheck = adminDal.IsPcComponetTypeExists(typeName);
-			if (ExistCheck.NOT_EXIST != existCheck)
-			{
-				return ExistCheck.EXISTS == existCheck ? Return.DUPLICATE : Return.DB_ERROR;
-			}
-			return adminDal.AddComponentType(typeName);
-		}
-
-		public Return AddComponent(PcComponet pcComponet)
-		{
-			ExistCheck existCheck = adminDal.IsPcComponetExists(pcComponet.Name);
-			if (ExistCheck.NOT_EXIST != existCheck)
-			{
-				return ExistCheck.EXISTS == existCheck ? Return.DUPLICATE : Return.DB_ERROR;
-			}
-			return adminDal.AddComponent(pcComponet);
-		}
 	}
 }
