@@ -111,7 +111,8 @@ namespace PC_Build_DAL
 													"pc_component_type.id pc_component_type_id," +
 													"pc_component_type.name pc_component_type_name," +
 													"brand," +
-													"description," +
+													"pc_component_type.description pc_component_type_description," +
+													"pc_component.description pc_component_description," +
 													"image," +
 													"price," +
 													"rating " +
@@ -132,10 +133,11 @@ namespace PC_Build_DAL
 								Type = new()
 								{
 									Id = reader["pc_component_type_id"].ToString(),
-									Name = reader["pc_component_type_name"].ToString()
+									Name = reader["pc_component_type_name"].ToString(),
+									Description = reader["pc_component_type_description"].ToString(),
 								},
 								Brand = reader["brand"].ToString(),
-								Description = reader["description"].ToString(),
+								Description = reader["pc_component_description"].ToString(),
 								Image = reader["image"].ToString(),
 								Price = double.Parse(reader["price"].ToString()),
 								Rating = double.Parse(reader["rating"].ToString())

@@ -2,10 +2,10 @@
 {
 	public enum Return
 	{
-		OK = 0,
-		DUPLICATE = 1,
-		DB_NOT_UPDATED = 2,
-		BAD_REQUEST = 3,
+		OK,
+		DUPLICATE,
+		DB_NOT_UPDATED,
+		BAD_REQUEST,
 		DB_ERROR,
 	}
 }

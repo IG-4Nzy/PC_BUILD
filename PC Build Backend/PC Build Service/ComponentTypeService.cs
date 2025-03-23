@@ -8,19 +8,34 @@ namespace PC_Build_Service
 	{
 		private readonly IComponentTypeDAL componentTypeDAL = componentTypeDAL;
 
-		public Return AddComponentType(string typeName)
+		public Return AddComponentType(PcComponentType pcComponentType)
 		{
-			ExistCheck existCheck = componentTypeDAL.IsPcComponetTypeExists(typeName, null);
+			pcComponentType.Name = pcComponentType.Name.ToString();
+			pcComponentType.Description = pcComponentType.Description.ToString();
+
+			if (string.IsNullOrWhiteSpace(pcComponentType.Name) ||
+				string.IsNullOrWhiteSpace(pcComponentType.Description))
+			{
+				return Return.BAD_REQUEST;
+			}
+
+			ExistCheck existCheck = componentTypeDAL.IsPcComponetTypeExists(pcComponentType.Name, null);
 			if (ExistCheck.NOT_EXIST != existCheck)
 			{
 				return ExistCheck.EXISTS == existCheck ? Return.DUPLICATE : Return.DB_ERROR;
 			}
-			return componentTypeDAL.AddComponentType(typeName);
+			return componentTypeDAL.AddComponentType(pcComponentType);
 		}
 
 		public Return EditComponentType(PcComponentType pcComponentType)
 		{
-			if (string.IsNullOrWhiteSpace(pcComponentType.Id) || string.IsNullOrWhiteSpace(pcComponentType.Name))
+			pcComponentType.Id = pcComponentType.Id.ToString();
+			pcComponentType.Name = pcComponentType.Name.ToString();
+			pcComponentType.Description = pcComponentType.Description.ToString();
+
+			if (string.IsNullOrWhiteSpace(pcComponentType.Id) ||
+				string.IsNullOrWhiteSpace(pcComponentType.Name) ||
+				string.IsNullOrWhiteSpace(pcComponentType.Description))
 			{
 				return Return.BAD_REQUEST;
 			}

@@ -12,12 +12,13 @@ namespace PC_Build_Backend.Controllers
 
 		[HttpPost]
 		[Route("AddComponentType")]
-		public IActionResult AddComponentType(string typeName)
+		public IActionResult AddComponentType(PcComponentType pcComponentType)
 		{
-			Return response = componentTypeService.AddComponentType(typeName);
+			Return response = componentTypeService.AddComponentType(pcComponentType);
 			return response == Return.OK ? Ok()
 				: response == Return.DUPLICATE ? Conflict()
 				: response == Return.DB_NOT_UPDATED ? NotFound()
+				: response == Return.BAD_REQUEST ? BadRequest()
 				: StatusCode(StatusCodes.Status500InternalServerError);
 		}
 
@@ -26,7 +27,7 @@ namespace PC_Build_Backend.Controllers
 		public IActionResult GetAllComponentTypes()
 		{
 			List<PcComponentType>? pcComponentTypes = componentTypeService.GetAllComponentTypes();
-			return pcComponentTypes != null ? Ok(pcComponentTypes) 
+			return pcComponentTypes != null ? Ok(pcComponentTypes)
 				: StatusCode(StatusCodes.Status500InternalServerError);
 		}
 
