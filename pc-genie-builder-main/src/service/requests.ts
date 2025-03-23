@@ -18,11 +18,12 @@ export const apiRequest = async (url, method, data = {}, options: any = {}) => {
   }
 };
 
-export const adminLogin = (body) => async (dispatch) => {
+export const adminLogin = (body, navigateAfterSuccess) => async (dispatch) => {
   try {
     await apiRequest("Admin/Login", "POST", body);
     dispatch(showToast("success", "Logged in successfully"));
     setItemToLocalStorage("isAdmin", true);
+    navigateAfterSuccess();
   } catch (error) {
     dispatch(showToast("error", "Unauthorized"));
   }
