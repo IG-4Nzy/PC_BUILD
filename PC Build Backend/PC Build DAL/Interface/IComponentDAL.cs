@@ -6,5 +6,6 @@ namespace PC_Build_DAL.Interface
 	{
 		ExistCheck IsPcComponetExists(string componentName);
 		Return AddComponent(PcComponet pcComponet);
+		List<PcComponet>? GetAllPcComponents();
 	}
 }
