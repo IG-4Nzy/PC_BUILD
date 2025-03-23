@@ -2,7 +2,7 @@ import { setItemToLocalStorage } from "@/helpers/utils";
 import { showToast } from "@/redux/action";
 import axios from "axios";
 
-const BASE_URL = `http://localhost:5104/`;
+const BASE_URL = `https://pqh5bnjg-5104.inc1.devtunnels.ms/`;
 
 export const apiRequest = async (url, method, data = {}, options: any = {}) => {
   try {

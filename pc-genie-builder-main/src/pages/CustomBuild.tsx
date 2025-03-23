@@ -17,7 +17,11 @@ const CustomBuild = () => {
     setFinalBuild,
     setIsCustomBuild
   } = useAppContext();
-  const [componentTypes, setComponentTypes] = useState(null);
+  const [componentTypes, setComponentTypes] = useState<Array<{
+    name?: string;
+    id?: string;
+    description?: string;
+  }> | null>(null);
 
   const handleSaveBuild = () => {
     // Check if all components are selected
@@ -186,7 +190,8 @@ const CustomBuild = () => {
         brand: "NZXT",
         price: 179,
         rating: 4.8,
-        image: "/placeholder.svg",
+        image: "/placeholder.svg",git add ,'
+        '
         description: "360mm AIO liquid cooler with RGB"
       }
     ]
@@ -220,21 +225,22 @@ const CustomBuild = () => {
 
         <Tabs defaultValue="cpu" className="w-full">
           <TabsList className="grid grid-cols-4 md:grid-cols-8 mb-8">
-            {componentCategories.map((category) => (
-              <TabsTrigger
-                key={category.id}
-                value={category.id}
-                className="relative"
-              >
-                {category.name}
-                {customBuild[category.id as keyof typeof customBuild] && (
-                  <span className="absolute -top-1 -right-1 bg-green-500 rounded-full w-3 h-3"></span>
-                )}
-              </TabsTrigger>
-            ))}
+            {componentTypes &&
+              componentTypes?.map((category) => (
+                <TabsTrigger
+                  key={category.id}
+                  value={category.id}
+                  className="relative"
+                >
+                  {category.name}
+                  {customBuild[category.id as keyof typeof customBuild] && (
+                    <span className="absolute -top-1 -right-1 bg-green-500 rounded-full w-3 h-3"></span>
+                  )}
+                </TabsTrigger>
+              ))}
           </TabsList>
 
-          {componentCategories.map((category) => (
+          {componentCategories?.map((category) => (
             <TabsContent
               key={category.id}
               value={category.id}
