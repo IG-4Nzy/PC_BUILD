@@ -82,7 +82,14 @@ const PurposeSelection = () => {
 
   const handleLogin = () => {
     setItemToLocalStorage("isAdmin", true);
-    dispatch(adminLogin({ userId: userId, password: password }));
+    navigateAfterSuccess();
+    dispatch(
+      adminLogin({ userId: userId, password: password }, navigateAfterSuccess)
+    );
+  };
+
+  const navigateAfterSuccess = () => {
+    navigate("/admin");
   };
 
   const handleContinue = () => {
@@ -116,7 +123,7 @@ const PurposeSelection = () => {
   const handleAdmin = () => {
     const isAdmin = localStorage.getItem("isAdmin");
     console.log(JSON.parse(isAdmin));
-    if (isAdmin) navigate("/admin");
+    if (isAdmin === "true") navigate("/admin");
     else setAdminLoginModal(true);
   };
 
