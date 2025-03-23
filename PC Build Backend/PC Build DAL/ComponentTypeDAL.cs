@@ -42,7 +42,7 @@ namespace PC_Build_DAL
 			}
 		}
 
-		public Return AddComponentType(string typeName)
+		public Return AddComponentType(PcComponentType pcComponentType)
 		{
 			try
 			{
@@ -52,15 +52,18 @@ namespace PC_Build_DAL
 					{
 						command.CommandText = "insert into pc_component_type(" +
 													"id," +
-													"name" +
+													"name," +
+													"description" +
 												") " +
 												"values(" +
 													"@id," +
-													"@name" +
+													"@name," +
+													"@description" +
 												");";
 
 						command.Parameters.Add(databaseFactory.CreateDataParameter("@id", Guid.NewGuid().ToString()));
-						command.Parameters.Add(databaseFactory.CreateDataParameter("@name", typeName));
+						command.Parameters.Add(databaseFactory.CreateDataParameter("@name", pcComponentType.Name));
+						command.Parameters.Add(databaseFactory.CreateDataParameter("@description", pcComponentType.Description));
 
 						if (command.ExecuteNonQuery() > 0)
 						{
@@ -86,11 +89,14 @@ namespace PC_Build_DAL
 					using (IDbCommand command = connection.CreateCommand())
 					{
 						command.CommandText = "update pc_component_type " +
-												"set name=@name " +
+												"set " +
+													"name=@name," +
+													"description=@description " +
 												"where id=@id;";
 
 						command.Parameters.Add(databaseFactory.CreateDataParameter("@id", pcComponentType.Id));
 						command.Parameters.Add(databaseFactory.CreateDataParameter("@name", pcComponentType.Name));
+						command.Parameters.Add(databaseFactory.CreateDataParameter("@description", pcComponentType.Description));
 
 						if (command.ExecuteNonQuery() > 0)
 						{
@@ -125,7 +131,8 @@ namespace PC_Build_DAL
 							pcComponentTypes.Add(new()
 							{
 								Id = reader["id"].ToString(),
-								Name = reader["name"].ToString()
+								Name = reader["name"].ToString(),
+								Description = reader["description"].ToString()
 							});
 						}
 						return pcComponentTypes;
