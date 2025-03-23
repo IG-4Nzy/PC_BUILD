@@ -95,7 +95,7 @@ namespace PC_Build_DAL
 			}
 		}
 
-		public List<PcComponent>? GetAllPcComponents()
+		public List<PcComponent>? GetAllComponentsInType(string typeId)
 		{
 			List<PcComponent> pcComponents = [];
 
@@ -117,7 +117,10 @@ namespace PC_Build_DAL
 													"rating " +
 												"from pc_component " +
 												"join pc_component_type " +
-												"on pc_component.type=pc_component_type.id;";
+												"on pc_component.type=pc_component_type.id " +
+												"where pc_component.type=@type;";
+
+						command.Parameters.Add(databaseFactory.CreateDataParameter("@type", typeId));
 
 						IDataReader reader = command.ExecuteReader();
 						while (reader.Read())

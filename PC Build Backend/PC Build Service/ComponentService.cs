@@ -35,9 +35,9 @@ namespace PC_Build_Service
 			return componentDAL.AddComponent(pcComponent);
 		}
 
-		public List<PcComponent>? GetAllPcComponents()
+		public List<PcComponent>? GetAllComponentsInType(string typeId)
 		{
-			return componentDAL.GetAllPcComponents();
+			return componentDAL.GetAllComponentsInType(typeId);
 		}
 
 		public Return EditComponent(PcComponent pcComponent)

@@ -23,10 +23,10 @@ namespace PC_Build_Backend.Controllers
 		}
 
 		[HttpGet]
-		[Route("GetAllComponents")]
-		public IActionResult GetAllPcComponents()
+		[Route("GetAllComponentsInType")]
+		public IActionResult GetAllComponentsInType(string typeId)
 		{
-			List<PcComponent>? pcComponents = componentService.GetAllPcComponents();
+			List<PcComponent>? pcComponents = componentService.GetAllComponentsInType(typeId);
 			return null != componentService ? Ok(pcComponents) : StatusCode(StatusCodes.Status500InternalServerError);
 		}
 
