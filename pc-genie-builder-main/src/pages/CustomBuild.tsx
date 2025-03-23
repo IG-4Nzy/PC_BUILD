@@ -190,8 +190,7 @@ const CustomBuild = () => {
         brand: "NZXT",
         price: 179,
         rating: 4.8,
-        image: "/placeholder.svg",git add ,'
-        '
+        image: "/placeholder.svg",
         description: "360mm AIO liquid cooler with RGB"
       }
     ]
