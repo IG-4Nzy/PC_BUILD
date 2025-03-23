@@ -8,36 +8,68 @@ namespace PC_Build_Service
 	{
 		private readonly IComponentDAL componentDAL = componentDAL;
 
-		public Return AddComponent(PcComponet pcComponet)
+		public Return AddComponent(PcComponent pcComponent)
 		{
-			pcComponet.Name = pcComponet.Name.Trim();
-			pcComponet.Type.Id = pcComponet.Type.Id.Trim();
-			pcComponet.Brand = pcComponet.Brand.Trim();
-			pcComponet.Description = pcComponet.Description.Trim();
+			pcComponent.Name = pcComponent.Name.Trim();
+			pcComponent.Type.Id = pcComponent.Type.Id.Trim();
+			pcComponent.Brand = pcComponent.Brand.Trim();
+			pcComponent.Description = pcComponent.Description.Trim();
 
-			if (string.IsNullOrEmpty(pcComponet.Name) ||
-				string.IsNullOrEmpty(pcComponet.Type.Id) ||
-				string.IsNullOrEmpty(pcComponet.Brand) ||
-				string.IsNullOrEmpty(pcComponet.Description) ||
-				string.IsNullOrWhiteSpace(pcComponet.Image) ||
-				pcComponet.Price <= 0 ||
-				pcComponet.Rating <= 0 ||
-				pcComponet.Rating > 10)
+			if (string.IsNullOrEmpty(pcComponent.Name) ||
+				string.IsNullOrEmpty(pcComponent.Type.Id) ||
+				string.IsNullOrEmpty(pcComponent.Brand) ||
+				string.IsNullOrEmpty(pcComponent.Description) ||
+				string.IsNullOrWhiteSpace(pcComponent.Image) ||
+				pcComponent.Price <= 0 ||
+				pcComponent.Rating <= 0 ||
+				pcComponent.Rating > 10)
 			{
 				return Return.BAD_REQUEST;
 			}
 
-			ExistCheck existCheck = componentDAL.IsPcComponetExists(pcComponet.Name);
+			ExistCheck existCheck = componentDAL.IsPcComponetExists(pcComponent.Name, null);
 			if (ExistCheck.NOT_EXIST != existCheck)
 			{
 				return ExistCheck.EXISTS == existCheck ? Return.DUPLICATE : Return.DB_ERROR;
 			}
-			return componentDAL.AddComponent(pcComponet);
+			return componentDAL.AddComponent(pcComponent);
 		}
 
-		public List<PcComponet>? GetAllPcComponents()
+		public List<PcComponent>? GetAllPcComponents()
 		{
 			return componentDAL.GetAllPcComponents();
+		}
+
+		public Return EditComponent(PcComponent pcComponent)
+		{
+			pcComponent.Name = pcComponent.Name.Trim();
+			pcComponent.Type.Id = pcComponent.Type.Id.Trim();
+			pcComponent.Brand = pcComponent.Brand.Trim();
+			pcComponent.Description = pcComponent.Description.Trim();
+
+			if (string.IsNullOrEmpty(pcComponent.Name) ||
+				string.IsNullOrEmpty(pcComponent.Type.Id) ||
+				string.IsNullOrEmpty(pcComponent.Brand) ||
+				string.IsNullOrEmpty(pcComponent.Description) ||
+				string.IsNullOrWhiteSpace(pcComponent.Image) ||
+				pcComponent.Price <= 0 ||
+				pcComponent.Rating <= 0 ||
+				pcComponent.Rating > 10)
+			{
+				return Return.BAD_REQUEST;
+			}
+
+			ExistCheck existCheck = componentDAL.IsPcComponetExists(pcComponent.Name, pcComponent.Id);
+			if (ExistCheck.NOT_EXIST != existCheck)
+			{
+				return ExistCheck.EXISTS == existCheck ? Return.DUPLICATE : Return.DB_ERROR;
+			}
+			return componentDAL.EditComponent(pcComponent);
+		}
+
+		public Return DeleteComponent(string id)
+		{
+			return componentDAL.DeleteComponent(id);
 		}
 	}
 }

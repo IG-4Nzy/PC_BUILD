@@ -1,6 +1,6 @@
 ﻿namespace PC_Build_Models
 {
-    public class PcComponet
+    public class PcComponent
     {
         public string? Id { get; set; }
         public string Name { get; set; }

@@ -1,5 +1,4 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using PC_Build_DAL;
 using PC_Build_Models;
 using PC_Build_Service.Interface;
 
@@ -13,9 +12,9 @@ namespace PC_Build_Backend.Controllers
 
 		[HttpPost]
 		[Route("AddComponent")]
-		public IActionResult AddComponent(PcComponet pcComponet)
+		public IActionResult AddComponent(PcComponent pcComponent)
 		{
-			Return response = componentService.AddComponent(pcComponet);
+			Return response = componentService.AddComponent(pcComponent);
 			return response == Return.OK ? Ok()
 				: response == Return.DUPLICATE ? Conflict()
 				: response == Return.DB_NOT_UPDATED ? NotFound()
@@ -27,8 +26,30 @@ namespace PC_Build_Backend.Controllers
 		[Route("GetAllComponents")]
 		public IActionResult GetAllPcComponents()
 		{
-			List<PcComponet>? pcComponets = componentService.GetAllPcComponents();
-			return null != componentService ? Ok(pcComponets) : StatusCode(StatusCodes.Status500InternalServerError);
+			List<PcComponent>? pcComponents = componentService.GetAllPcComponents();
+			return null != componentService ? Ok(pcComponents) : StatusCode(StatusCodes.Status500InternalServerError);
+		}
+
+		[HttpPost]
+		[Route("EditComponent")]
+		public IActionResult EditComponent(PcComponent pcComponent)
+		{
+			Return response = componentService.EditComponent(pcComponent);
+			return response == Return.OK ? Ok()
+				: response == Return.DUPLICATE ? Conflict()
+				: response == Return.DB_NOT_UPDATED ? NotFound()
+				: response == Return.BAD_REQUEST ? BadRequest()
+				: StatusCode(StatusCodes.Status500InternalServerError);
+		}
+
+		[HttpDelete]
+		[Route("DeleteComponent")]
+		public IActionResult DeleteComponent(string id)
+		{
+			Return response = componentService.DeleteComponent(id);
+			return response == Return.OK ? Ok()
+				: response == Return.DB_NOT_UPDATED ? NotFound()
+				: StatusCode(StatusCodes.Status500InternalServerError);
 		}
 	}
 }

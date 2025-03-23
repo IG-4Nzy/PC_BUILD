@@ -4,8 +4,10 @@ namespace PC_Build_DAL.Interface
 {
 	public interface IComponentDAL
 	{
-		ExistCheck IsPcComponetExists(string componentName);
-		Return AddComponent(PcComponet pcComponet);
-		List<PcComponet>? GetAllPcComponents();
+		ExistCheck IsPcComponetExists(string componentName, string? id);
+		Return AddComponent(PcComponent pcComponent);
+		List<PcComponent>? GetAllPcComponents();
+		Return EditComponent(PcComponent pcComponent);
+		Return DeleteComponent(string id);
 	}
 }
