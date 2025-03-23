@@ -4,7 +4,8 @@
 	{
 		OK = 0,
 		DUPLICATE = 1,
-		NOT_ADDED = 2,
+		DB_NOT_UPDATED = 2,
+		BAD_REQUEST = 3,
 		DB_ERROR,
 	}
 }

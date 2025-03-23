@@ -1,10 +1,9 @@
 ﻿using PC_Build_Models;
 
-namespace PC_Build_Service
+namespace PC_Build_Service.Interface
 {
 	public interface IComponentService
 	{
-		Return AddComponentType(string typeName);
 		Return AddComponent(PcComponet pcComponet);
 	}
 }

@@ -1,6 +1,6 @@
 using Microsoft.AspNetCore.Mvc;
 using PC_Build_Models;
-using PC_Build_Service;
+using PC_Build_Service.Interface;
 
 namespace PC_Build_Backend.Controllers
 {

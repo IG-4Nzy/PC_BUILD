@@ -1,8 +1,8 @@
 ﻿using PC_Build_Models;
 
-namespace PC_Build_Service
+namespace PC_Build_DAL.Interface
 {
-	public interface IAdminService
+	public interface IAdminDAL
 	{
 		bool Login(LoginData loginData);
 	}

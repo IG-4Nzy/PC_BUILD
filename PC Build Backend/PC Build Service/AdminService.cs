@@ -1,5 +1,6 @@
-﻿using PC_Build_DAL;
+﻿using PC_Build_DAL.Interface;
 using PC_Build_Models;
+using PC_Build_Service.Interface;
 
 namespace PC_Build_Service
 {
