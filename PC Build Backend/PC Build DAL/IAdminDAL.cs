@@ -2,10 +2,12 @@
 
 namespace PC_Build_DAL
 {
-    public interface IAdminDAL
-    {
-        bool Login(LoginData loginData);
-        ExistCheck IsPcComponetExists(string componentName);
-        Return AddComponent(PcComponet pcComponet);
-    }
+	public interface IAdminDAL
+	{
+		bool Login(LoginData loginData);
+		ExistCheck IsPcComponetTypeExists(string typeName);
+		Return AddComponentType(string typeName);
+		ExistCheck IsPcComponetExists(string componentName);
+		Return AddComponent(PcComponet pcComponet);
+	}
 }

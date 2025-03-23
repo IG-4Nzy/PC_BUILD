@@ -2,9 +2,10 @@
 
 namespace PC_Build_Service
 {
-    public interface IAdminService
-    {
-        bool Login(LoginData loginData);
-        Return AddComponent(PcComponet pcComponet);
-    }
+	public interface IAdminService
+	{
+		bool Login(LoginData loginData);
+		Return AddComponentType(string typeName);
+		Return AddComponent(PcComponet pcComponet);
+	}
 }
