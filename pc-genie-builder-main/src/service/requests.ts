@@ -28,3 +28,16 @@ export const adminLogin = (body, navigateAfterSuccess) => async (dispatch) => {
     dispatch(showToast("error", "Unauthorized"));
   }
 };
+
+export const GetComponentTypes = () => async (dispatch) => {
+  try {
+    const response = await apiRequest(
+      "ComponentType/GetAllComponentTypes",
+      "GET"
+    );
+    return response;
+  } catch (error) {
+    dispatch(showToast("error", "Unauthorized"));
+    throw error;
+  }
+};
