@@ -17,9 +17,15 @@ import { useToast } from "@/components/ui/use-toast";
 import { adminLogin } from "@/service/requests";
 import CustomModal from "@/components/CustomModal";
 import { Input } from "@mui/material";
+import { useAppDispatch } from "@/helpers/hooks";
+import {
+  getItemFromLocalStorage,
+  setItemToLocalStorage
+} from "@/helpers/utils";
 
 const PurposeSelection = () => {
   const navigate = useNavigate();
+  const dispatch = useAppDispatch();
   const { toast } = useToast();
   const { setSelectedPurpose } = useAppContext();
   const [selectedOption, setSelectedOption] = useState<string | null>(null);
@@ -75,7 +81,8 @@ const PurposeSelection = () => {
   };
 
   const handleLogin = () => {
-    adminLogin({ userId: userId, password: password });
+    setItemToLocalStorage("isAdmin", true);
+    dispatch(adminLogin({ userId: userId, password: password }));
   };
 
   const handleContinue = () => {
@@ -106,9 +113,23 @@ const PurposeSelection = () => {
     show: { y: 0, opacity: 1 }
   };
 
+  const handleAdmin = () => {
+    const isAdmin = localStorage.getItem("isAdmin");
+    console.log(JSON.parse(isAdmin));
+    if (isAdmin) navigate("/admin");
+    else setAdminLoginModal(true);
+  };
+
   return (
     <div className="min-h-screen bg-background pt-12 px-4 sm:px-6 lg:px-8">
-      <label onClick={() => setAdminLoginModal(true)}>admin</label>
+      <div className="w-full justify-end flex">
+        <label
+          onClick={handleAdmin}
+          className="text-pc4u-primary cursor-pointer font-bold"
+        >
+          admin
+        </label>
+      </div>
       {adminLoginModal && (
         <CustomModal
           open={adminLoginModal}
