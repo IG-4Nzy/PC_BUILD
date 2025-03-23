@@ -1,10 +1,11 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
 import { Plus, Edit, Trash2 } from "lucide-react";
 import CustomModal from "@/components/CustomModal";
 import { Input } from "@mui/material";
+import { GetComponentTypes } from "@/service/requests";
 
 const AdminPage = () => {
   const navigate = useNavigate();
@@ -36,7 +37,10 @@ const AdminPage = () => {
         </h1>
         <div className="flex justify-between items-center mb-6">
           <h2 className="text-2xl font-semibold">Components</h2>
-          <Button onClick={() => setShowModal(true)} className="flex items-center">
+          <Button
+            onClick={() => setShowModal(true)}
+            className="flex items-center"
+          >
             <Plus className="mr-2" /> Add New
           </Button>
         </div>
@@ -51,14 +55,21 @@ const AdminPage = () => {
               key={item.id}
               className="p-4 bg-white dark:bg-gray-900 rounded-xl shadow-md flex justify-between items-center cursor-pointer"
               whileHover={{ scale: 1.05 }}
-              onClick={() => navigate(`/admin/component/${item.id}`, { state: { name: item.name } })}
+              onClick={() =>
+                navigate(`/admin/component/${item.id}`, {
+                  state: { name: item.name }
+                })
+              }
             >
               <span className="text-lg font-semibold">{item.name}</span>
               <div className="flex space-x-3">
                 <Button variant="outline">
                   <Edit size={18} />
                 </Button>
-                <Button variant="destructive" onClick={() => handleDelete(item.id)}>
+                <Button
+                  variant="destructive"
+                  onClick={() => handleDelete(item.id)}
+                >
                   <Trash2 size={18} />
                 </Button>
               </div>
@@ -71,14 +82,18 @@ const AdminPage = () => {
       {showModal && (
         <CustomModal open={showModal} handleClose={() => setShowModal(false)}>
           <div className="p-6 w-[400px] bg-white dark:bg-gray-900 rounded-xl">
-            <h2 className="text-2xl font-semibold mb-4 text-center">Add Component</h2>
+            <h2 className="text-2xl font-semibold mb-4 text-center">
+              Add Component
+            </h2>
             <Input
               placeholder="Enter component name"
               className="mb-4 w-full"
               value={newComponent}
               onChange={(e) => setNewComponent(e.target.value)}
             />
-            <Button className="w-full" onClick={handleAdd}>Save</Button>
+            <Button className="w-full" onClick={handleAdd}>
+              Save
+            </Button>
           </div>
         </CustomModal>
       )}
