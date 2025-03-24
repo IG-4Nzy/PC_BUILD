@@ -8,7 +8,9 @@ interface ToastState {
 }
 
 const initialState = {
-  toast: {} as ToastState
+  toast: {} as ToastState,
+  componentTypes: {} as any,
+  components: {} as any
 };
 
 const layoutSlice = createSlice({
@@ -25,6 +27,19 @@ const layoutSlice = createSlice({
         open: true
       };
     },
+    setComponentTypes: (
+      state,
+      action: PayloadAction<{ type: ToastTypeT; message: string }>
+    ) => {
+      state.componentTypes = action.payload;
+    },
+    setComponents: (
+      state,
+      action: PayloadAction<{ type: ToastTypeT; message: string }>
+    ) => {
+      state.components = action.payload;
+    },
+
     resetToast: (state) => {
       state.toast = {} as ToastState;
     }
@@ -32,4 +47,5 @@ const layoutSlice = createSlice({
 });
 
 export const layoutReducer = layoutSlice.reducer;
-export const { setToast, resetToast } = layoutSlice.actions;
+export const { setToast, resetToast, setComponentTypes, setComponents } =
+  layoutSlice.actions;

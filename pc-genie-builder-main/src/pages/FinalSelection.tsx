@@ -20,7 +20,8 @@ import { GetComponentTypes } from "@/service/requests";
 const FinalSelection = () => {
   const navigate = useNavigate();
   const { toast } = useToast();
-  const { finalBuild, isCustomBuild } = useAppContext();
+  const finalBuild = {};
+  const isCustomBuild = true;
 
   // Redirect if no final build is selected
   React.useEffect(() => {
@@ -32,8 +33,6 @@ const FinalSelection = () => {
   if (!finalBuild) {
     return <div>Loading...</div>;
   }
-
-
 
   const handleShare = () => {
     // In a real app, this would open a share dialog or copy a link
@@ -59,28 +58,28 @@ const FinalSelection = () => {
     {
       id: "1",
       name: "TechGalaxy",
-      price: finalBuild.price,
+      price: finalBuild?.price,
       inStock: true,
       deliveryDays: 3
     },
     {
       id: "2",
       name: "ComputerWorld",
-      price: finalBuild.price + 25,
+      price: finalBuild?.price + 25,
       inStock: true,
       deliveryDays: 2
     },
     {
       id: "3",
       name: "PCPartZone",
-      price: finalBuild.price - 15,
+      price: finalBuild?.price - 15,
       inStock: false,
       deliveryDays: 5
     },
     {
       id: "4",
       name: "Hardware Hub",
-      price: finalBuild.price + 10,
+      price: finalBuild?.price + 10,
       inStock: true,
       deliveryDays: 4
     }
@@ -120,26 +119,26 @@ const FinalSelection = () => {
           <div className="lg:col-span-2">
             <Card>
               <CardHeader>
-                <CardTitle>Build Summary: {finalBuild.name}</CardTitle>
+                <CardTitle>Build Summary: {finalBuild?.name}</CardTitle>
               </CardHeader>
               <CardContent>
                 <div className="grid grid-cols-2 gap-4 mb-6">
                   <div>
                     <p className="text-sm text-muted-foreground">Total Price</p>
-                    <p className="text-2xl font-bold">${finalBuild.price}</p>
+                    <p className="text-2xl font-bold">${finalBuild?.price}</p>
                   </div>
                   <div>
                     <p className="text-sm text-muted-foreground">
                       Performance Score
                     </p>
                     <p className="text-2xl font-bold">
-                      {finalBuild.performanceScore}/100
+                      {finalBuild?.performanceScore}/100
                     </p>
                   </div>
                 </div>
 
                 <div className="space-y-4">
-                  {Object.entries(finalBuild.components).map(
+                  {Object.entries(finalBuild?.components)?.map(
                     ([key, component]) => (
                       <div
                         key={key}
@@ -148,10 +147,10 @@ const FinalSelection = () => {
                         <div>
                           <p className="font-medium capitalize">{key}</p>
                           <p className="text-sm text-muted-foreground">
-                            {component.name}
+                            {component?.name}
                           </p>
                         </div>
-                        <p className="font-medium">${component.price}</p>
+                        <p className="font-medium">${component?.price}</p>
                       </div>
                     )
                   )}
