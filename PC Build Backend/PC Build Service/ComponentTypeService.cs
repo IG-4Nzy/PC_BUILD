@@ -8,42 +8,35 @@ namespace PC_Build_Service
 	{
 		private readonly IComponentTypeDAL componentTypeDAL = componentTypeDAL;
 
-		public Return AddComponentType(PcComponentType pcComponentType)
+		public bool AddComponentType(PcComponentType pcComponentType)
 		{
-			pcComponentType.Name = pcComponentType.Name.ToString();
-			pcComponentType.Description = pcComponentType.Description.ToString();
-
-			if (string.IsNullOrWhiteSpace(pcComponentType.Name) ||
+			if (pcComponentType == null ||
+				string.IsNullOrWhiteSpace(pcComponentType.Name) ||
 				string.IsNullOrWhiteSpace(pcComponentType.Description))
 			{
-				return Return.BAD_REQUEST;
+				return false;
 			}
 
-			ExistCheck existCheck = componentTypeDAL.IsPcComponetTypeExists(pcComponentType.Name, null);
-			if (ExistCheck.NOT_EXIST != existCheck)
+			if (componentTypeDAL.IsPcComponetTypeExists(pcComponentType.Name, null))
 			{
-				return ExistCheck.EXISTS == existCheck ? Return.DUPLICATE : Return.DB_ERROR;
+				return false;
 			}
 			return componentTypeDAL.AddComponentType(pcComponentType);
 		}
 
-		public Return EditComponentType(PcComponentType pcComponentType)
+		public bool EditComponentType(PcComponentType pcComponentType)
 		{
-			pcComponentType.Id = pcComponentType.Id.ToString();
-			pcComponentType.Name = pcComponentType.Name.ToString();
-			pcComponentType.Description = pcComponentType.Description.ToString();
-
-			if (string.IsNullOrWhiteSpace(pcComponentType.Id) ||
+			if (pcComponentType == null ||
+				string.IsNullOrWhiteSpace(pcComponentType.Id) ||
 				string.IsNullOrWhiteSpace(pcComponentType.Name) ||
 				string.IsNullOrWhiteSpace(pcComponentType.Description))
 			{
-				return Return.BAD_REQUEST;
+				return false;
 			}
 
-			ExistCheck existCheck = componentTypeDAL.IsPcComponetTypeExists(pcComponentType.Name, pcComponentType.Id);
-			if (ExistCheck.NOT_EXIST != existCheck)
+			if (componentTypeDAL.IsPcComponetTypeExists(pcComponentType.Name, pcComponentType.Id))
 			{
-				return ExistCheck.EXISTS == existCheck ? Return.DUPLICATE : Return.DB_ERROR;
+				return false;
 			}
 			return componentTypeDAL.EditComponentType(pcComponentType);
 		}
@@ -53,7 +46,7 @@ namespace PC_Build_Service
 			return componentTypeDAL.GetAllComponentTypes();
 		}
 
-		public Return DeleteComponentType(string id)
+		public bool DeleteComponentType(string id)
 		{
 			return componentTypeDAL.DeleteComponentType(id);
 		}

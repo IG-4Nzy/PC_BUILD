@@ -15,6 +15,8 @@ builder.Services.AddSingleton<IComponentTypeService, ComponentTypeService>();
 builder.Services.AddSingleton<IComponentTypeDAL, ComponentTypeDAL>();
 builder.Services.AddSingleton<IComponentService, ComponentService>();
 builder.Services.AddSingleton<IComponentDAL, ComponentDAL>();
+builder.Services.AddSingleton<IPreBuildService, PreBuildService>();
+builder.Services.AddSingleton<IPreBuildDAL, PreBuildDAL>();
 builder.Services.AddSingleton<IDatabaseFactory, MySqlDatabaseFactory>();
 
 builder.Services.AddCors(options =>

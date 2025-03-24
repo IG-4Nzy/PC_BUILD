@@ -14,42 +14,28 @@ namespace PC_Build_Backend.Controllers
 		[Route("AddComponent")]
 		public IActionResult AddComponent(PcComponent pcComponent)
 		{
-			Return response = componentService.AddComponent(pcComponent);
-			return response == Return.OK ? Ok()
-				: response == Return.DUPLICATE ? Conflict()
-				: response == Return.DB_NOT_UPDATED ? NotFound()
-				: response == Return.BAD_REQUEST ? BadRequest()
-				: StatusCode(StatusCodes.Status500InternalServerError);
+			return Ok(Json(componentService.AddComponent(pcComponent)));
 		}
 
 		[HttpGet]
 		[Route("GetAllComponentsInType")]
 		public IActionResult GetAllComponentsInType(string typeId)
 		{
-			List<PcComponent>? pcComponents = componentService.GetAllComponentsInType(typeId);
-			return null != componentService ? Ok(pcComponents) : StatusCode(StatusCodes.Status500InternalServerError);
+			return Ok(componentService.GetAllComponentsInType(typeId));
 		}
 
 		[HttpPost]
 		[Route("EditComponent")]
 		public IActionResult EditComponent(PcComponent pcComponent)
 		{
-			Return response = componentService.EditComponent(pcComponent);
-			return response == Return.OK ? Ok()
-				: response == Return.DUPLICATE ? Conflict()
-				: response == Return.DB_NOT_UPDATED ? NotFound()
-				: response == Return.BAD_REQUEST ? BadRequest()
-				: StatusCode(StatusCodes.Status500InternalServerError);
+			return Ok(Json(componentService.EditComponent(pcComponent)));
 		}
 
 		[HttpDelete]
 		[Route("DeleteComponent")]
 		public IActionResult DeleteComponent(string id)
 		{
-			Return response = componentService.DeleteComponent(id);
-			return response == Return.OK ? Ok()
-				: response == Return.DB_NOT_UPDATED ? NotFound()
-				: StatusCode(StatusCodes.Status500InternalServerError);
+			return Ok(Json(componentService.DeleteComponent(id)));
 		}
 	}
 }

@@ -9,7 +9,7 @@ namespace PC_Build_DAL
 	{
 		private readonly IDatabaseFactory databaseFactory = databaseFactory;
 
-		public ExistCheck IsPcComponetExists(string componentName, string? id)
+		public bool IsPcComponetExists(string componentName, string? id)
 		{
 			try
 			{
@@ -29,20 +29,20 @@ namespace PC_Build_DAL
 						IDataReader reader = command.ExecuteReader();
 						if (reader.Read())
 						{
-							return ExistCheck.EXISTS;
+							return true;
 						}
-						return ExistCheck.NOT_EXIST;
+						return false;
 					}
 				}
 			}
 			catch (Exception ex)
 			{
 				Console.WriteLine(ex.Message);
-				return ExistCheck.ERROR;
+				return true;
 			}
 		}
 
-		public Return AddComponent(PcComponent pcComponent)
+		public bool AddComponent(PcComponent pcComponent)
 		{
 			try
 			{
@@ -57,7 +57,6 @@ namespace PC_Build_DAL
 													"brand," +
 													"price," +
 													"rating," +
-													"image," +
 													"description" +
 												") " +
 												"values(" +
@@ -67,31 +66,29 @@ namespace PC_Build_DAL
 													"@brand," +
 													"@price," +
 													"@rating," +
-													"@image," +
 													"@description" +
 												");";
 
 						command.Parameters.Add(databaseFactory.CreateDataParameter("@id", Guid.NewGuid().ToString()));
-						command.Parameters.Add(databaseFactory.CreateDataParameter("@name", pcComponent.Name));
-						command.Parameters.Add(databaseFactory.CreateDataParameter("@type", pcComponent.Type.Id));
-						command.Parameters.Add(databaseFactory.CreateDataParameter("@brand", pcComponent.Brand));
+						command.Parameters.Add(databaseFactory.CreateDataParameter("@name", pcComponent.Name!));
+						command.Parameters.Add(databaseFactory.CreateDataParameter("@type", pcComponent.Type!.Id!));
+						command.Parameters.Add(databaseFactory.CreateDataParameter("@brand", pcComponent.Brand!));
 						command.Parameters.Add(databaseFactory.CreateDataParameter("@price", pcComponent.Price));
 						command.Parameters.Add(databaseFactory.CreateDataParameter("@rating", pcComponent.Rating));
-						command.Parameters.Add(databaseFactory.CreateDataParameter("@image", pcComponent.Image));
-						command.Parameters.Add(databaseFactory.CreateDataParameter("@description", pcComponent.Description));
+						command.Parameters.Add(databaseFactory.CreateDataParameter("@description", pcComponent.Description!));
 
 						if (command.ExecuteNonQuery() > 0)
 						{
-							return Return.OK;
+							return true;
 						}
-						return Return.DB_NOT_UPDATED;
+						return false;
 					}
 				}
 			}
 			catch (Exception ex)
 			{
 				Console.WriteLine(ex.Message);
-				return Return.DB_ERROR;
+				return false;
 			}
 		}
 
@@ -113,7 +110,6 @@ namespace PC_Build_DAL
 													"brand," +
 													"pc_component_type.description pc_component_type_description," +
 													"pc_component.description pc_component_description," +
-													"image," +
 													"price," +
 													"rating " +
 												"from pc_component " +
@@ -138,9 +134,8 @@ namespace PC_Build_DAL
 								},
 								Brand = reader["brand"].ToString(),
 								Description = reader["pc_component_description"].ToString(),
-								Image = reader["image"].ToString(),
-								Price = double.Parse(reader["price"].ToString()),
-								Rating = double.Parse(reader["rating"].ToString())
+								Price = double.Parse(reader["price"].ToString() ?? "0"),
+								Rating = double.Parse(reader["rating"].ToString() ?? "0")
 							});
 						}
 						return pcComponents;
@@ -154,7 +149,7 @@ namespace PC_Build_DAL
 			}
 		}
 
-		public Return EditComponent(PcComponent pcComponent)
+		public bool EditComponent(PcComponent pcComponent)
 		{
 			try
 			{
@@ -167,37 +162,35 @@ namespace PC_Build_DAL
 													"name=@name," +
 													"type=@type," +
 													"brand=@brand," +
-													"image=@image," +
 													"description=@description," +
 													"price=@price," +
 													"rating=@rating " +
 												"where id=@id;";
 
-						command.Parameters.Add(databaseFactory.CreateDataParameter("@id", pcComponent.Id));
-						command.Parameters.Add(databaseFactory.CreateDataParameter("@name", pcComponent.Name));
-						command.Parameters.Add(databaseFactory.CreateDataParameter("@type", pcComponent.Type.Id));
-						command.Parameters.Add(databaseFactory.CreateDataParameter("@brand", pcComponent.Brand));
-						command.Parameters.Add(databaseFactory.CreateDataParameter("@description", pcComponent.Description));
-						command.Parameters.Add(databaseFactory.CreateDataParameter("@image", pcComponent.Image));
+						command.Parameters.Add(databaseFactory.CreateDataParameter("@id", pcComponent.Id!));
+						command.Parameters.Add(databaseFactory.CreateDataParameter("@name", pcComponent.Name!));
+						command.Parameters.Add(databaseFactory.CreateDataParameter("@type", pcComponent.Type!.Id!));
+						command.Parameters.Add(databaseFactory.CreateDataParameter("@brand", pcComponent.Brand!));
+						command.Parameters.Add(databaseFactory.CreateDataParameter("@description", pcComponent.Description!));
 						command.Parameters.Add(databaseFactory.CreateDataParameter("@price", pcComponent.Price));
 						command.Parameters.Add(databaseFactory.CreateDataParameter("@rating", pcComponent.Rating));
 
 						if (command.ExecuteNonQuery() > 0)
 						{
-							return Return.OK;
+							return true;
 						}
-						return Return.DB_NOT_UPDATED;
+						return false;
 					}
 				}
 			}
 			catch (Exception ex)
 			{
 				Console.WriteLine(ex.Message);
-				return Return.DB_ERROR;
+				return false;
 			}
 		}
 
-		public Return DeleteComponent(string id)
+		public bool DeleteComponent(string id)
 		{
 			try
 			{
@@ -210,16 +203,16 @@ namespace PC_Build_DAL
 
 						if (command.ExecuteNonQuery() > 0)
 						{
-							return Return.OK;
+							return true;
 						}
-						return Return.DB_NOT_UPDATED;
+						return false;
 					}
 				}
 			}
 			catch (Exception ex)
 			{
 				Console.WriteLine(ex.Message);
-				return Return.DB_ERROR;
+				return false;
 			}
 		}
 	}

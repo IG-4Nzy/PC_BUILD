@@ -4,9 +4,9 @@ namespace PC_Build_Service.Interface
 {
 	public interface IComponentTypeService
 	{
-		Return AddComponentType(PcComponentType pcComponentType);
-		Return EditComponentType(PcComponentType pcComponentType);
+		bool AddComponentType(PcComponentType pcComponentType);
+		bool EditComponentType(PcComponentType pcComponentType);
 		List<PcComponentType>? GetAllComponentTypes();
-		Return DeleteComponentType(string id);
+		bool DeleteComponentType(string id);
 	}
 }

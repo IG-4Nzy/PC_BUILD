@@ -9,7 +9,7 @@ namespace PC_Build_DAL
 	{
 		private readonly IDatabaseFactory databaseFactory = databaseFactory;
 
-		public ExistCheck IsPcComponetTypeExists(string typeName, string? id)
+		public bool IsPcComponetTypeExists(string typeName, string? id)
 		{
 			try
 			{
@@ -29,20 +29,20 @@ namespace PC_Build_DAL
 						IDataReader reader = command.ExecuteReader();
 						if (reader.Read())
 						{
-							return ExistCheck.EXISTS;
+							return true;
 						}
-						return ExistCheck.NOT_EXIST;
+						return false;
 					}
 				}
 			}
 			catch (Exception ex)
 			{
 				Console.WriteLine(ex.Message);
-				return ExistCheck.ERROR;
+				return true;
 			}
 		}
 
-		public Return AddComponentType(PcComponentType pcComponentType)
+		public bool AddComponentType(PcComponentType pcComponentType)
 		{
 			try
 			{
@@ -62,25 +62,25 @@ namespace PC_Build_DAL
 												");";
 
 						command.Parameters.Add(databaseFactory.CreateDataParameter("@id", Guid.NewGuid().ToString()));
-						command.Parameters.Add(databaseFactory.CreateDataParameter("@name", pcComponentType.Name));
-						command.Parameters.Add(databaseFactory.CreateDataParameter("@description", pcComponentType.Description));
+						command.Parameters.Add(databaseFactory.CreateDataParameter("@name", pcComponentType.Name!));
+						command.Parameters.Add(databaseFactory.CreateDataParameter("@description", pcComponentType.Description!));
 
 						if (command.ExecuteNonQuery() > 0)
 						{
-							return Return.OK;
+							return true;
 						}
-						return Return.DB_NOT_UPDATED;
+						return false;
 					}
 				}
 			}
 			catch (Exception ex)
 			{
 				Console.WriteLine(ex.Message);
-				return Return.DB_ERROR;
+				return false;
 			}
 		}
 
-		public Return EditComponentType(PcComponentType pcComponentType)
+		public bool EditComponentType(PcComponentType pcComponentType)
 		{
 			try
 			{
@@ -94,22 +94,22 @@ namespace PC_Build_DAL
 													"description=@description " +
 												"where id=@id;";
 
-						command.Parameters.Add(databaseFactory.CreateDataParameter("@id", pcComponentType.Id));
-						command.Parameters.Add(databaseFactory.CreateDataParameter("@name", pcComponentType.Name));
-						command.Parameters.Add(databaseFactory.CreateDataParameter("@description", pcComponentType.Description));
+						command.Parameters.Add(databaseFactory.CreateDataParameter("@id", pcComponentType.Id!));
+						command.Parameters.Add(databaseFactory.CreateDataParameter("@name", pcComponentType.Name!));
+						command.Parameters.Add(databaseFactory.CreateDataParameter("@description", pcComponentType.Description!));
 
 						if (command.ExecuteNonQuery() > 0)
 						{
-							return Return.OK;
+							return true;
 						}
-						return Return.DB_NOT_UPDATED;
+						return false;
 					}
 				}
 			}
 			catch (Exception ex)
 			{
 				Console.WriteLine(ex.Message);
-				return Return.DB_ERROR;
+				return false;
 			}
 		}
 
@@ -146,7 +146,7 @@ namespace PC_Build_DAL
 			}
 		}
 
-		public Return DeleteComponentType(string id)
+		public bool DeleteComponentType(string id)
 		{
 			try
 			{
@@ -159,16 +159,16 @@ namespace PC_Build_DAL
 
 						if (command.ExecuteNonQuery() > 0)
 						{
-							return Return.OK;
+							return true;
 						}
-						return Return.DB_NOT_UPDATED;
+						return false;
 					}
 				}
 			}
 			catch (Exception ex)
 			{
 				Console.WriteLine(ex.Message);
-				return Return.DB_ERROR;
+				return false;
 			}
 		}
 	}
