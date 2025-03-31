@@ -46,5 +46,10 @@ namespace PC_Build_Service
 			}
 			return preBuilds;
 		}
+
+		public bool DeletePreBuild(string preBuildId)
+		{
+			return preBuildDAL.DeletePreBuild(preBuildId);
+		}
 	}
 }

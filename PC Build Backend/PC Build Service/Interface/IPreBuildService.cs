@@ -6,5 +6,6 @@ namespace PC_Build_Service.Interface
 	{
 		bool AddPreBuild(PreBuild preBuild);
 		List<PreBuild>? GetPreBuild(string purpose);
+		bool DeletePreBuild(string preBuildId);
 	}
 }

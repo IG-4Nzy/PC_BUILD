@@ -23,5 +23,12 @@ namespace PC_Build_Backend.Controllers
 		{
 			return Ok(Json(preBuildService.GetPreBuild(purpose)));
 		}
+
+		[HttpDelete]
+		[Route("DeletePreBuild")]
+		public IActionResult DeletePreBuild(string preBuildId)
+		{
+			return Ok(Json(preBuildService.DeletePreBuild(preBuildId)));
+		}
 	}
 }

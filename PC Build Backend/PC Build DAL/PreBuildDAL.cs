@@ -189,7 +189,7 @@ namespace PC_Build_DAL
 								},
 								Brand = reader["pc.brand"].ToString(),
 								Price = double.Parse(reader["pc.price"].ToString()),
-								Description=reader["pc.description"].ToString(),
+								Description = reader["pc.description"].ToString(),
 							});
 						}
 
@@ -201,6 +201,32 @@ namespace PC_Build_DAL
 			{
 				Console.WriteLine(ex.Message);
 				return null;
+			}
+		}
+
+		public bool DeletePreBuild(string preBuildId)
+		{
+			try
+			{
+				using (IDbConnection connection = databaseFactory.CreateConnection())
+				{
+					using (IDbCommand command = connection.CreateCommand())
+					{
+						command.CommandText = "delete from pre_build where id=@id;";
+						command.Parameters.Add(databaseFactory.CreateDataParameter("@id", preBuildId));
+
+						if (command.ExecuteNonQuery() > 0)
+						{
+							return true;
+						}
+						return false;
+					}
+				}
+			}
+			catch (Exception ex)
+			{
+				Console.WriteLine(ex.Message);
+				return false;
 			}
 		}
 	}
