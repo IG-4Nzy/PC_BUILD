@@ -7,5 +7,6 @@
 		public string? Purpose { get; set; }
 		public List<PcComponent>? PcComponents { get; set; }
 		public string? ExternalLink { get; set; }
+		public double Price { get; set; }
 	}
 }

@@ -28,9 +28,23 @@ namespace PC_Build_Service
 				}
 			}
 
-
-
 			return preBuildDAL.AddPreBuild(preBuild);
+		}
+
+		public List<PreBuild>? GetPreBuild(string purpose)
+		{
+			List<PreBuild>? preBuilds = preBuildDAL.GetPreBuild(purpose);
+			if (null != preBuilds)
+			{
+				foreach (PreBuild preBuild in preBuilds)
+				{
+					foreach (PcComponent pcComponent in preBuild.PcComponents)
+					{
+						preBuild.Price += pcComponent.Price;
+					}
+				}
+			}
+			return preBuilds;
 		}
 	}
 }

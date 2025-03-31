@@ -16,5 +16,12 @@ namespace PC_Build_Backend.Controllers
 		{
 			return Ok(Json(preBuildService.AddPreBuild(preBuild)));
 		}
+
+		[HttpPost]
+		[Route("GetPreBuilds")]
+		public IActionResult GetPreBuild(string purpose)
+		{
+			return Ok(Json(preBuildService.GetPreBuild(purpose)));
+		}
 	}
 }

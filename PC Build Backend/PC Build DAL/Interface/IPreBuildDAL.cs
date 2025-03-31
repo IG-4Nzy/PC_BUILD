@@ -5,5 +5,6 @@ namespace PC_Build_DAL.Interface
 	public interface IPreBuildDAL
 	{
 		bool AddPreBuild(PreBuild preBuild);
+		List<PreBuild>? GetPreBuild(string purpose);
 	}
 }
