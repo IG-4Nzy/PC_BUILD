@@ -15,16 +15,14 @@ namespace PC_Build_Service
 			if (pcComponent == null ||
 				string.IsNullOrEmpty(pcComponent.Name) ||
 				string.IsNullOrEmpty(pcComponent.Brand) ||
-				string.IsNullOrEmpty(pcComponent.Description) ||
 				pcComponent.Type == null ||
 				string.IsNullOrEmpty(pcComponent.Type.Id) ||
 				pcComponent.Price <= 0 ||
-				//pcComponent.Rating <= 0 ||
 				pcComponent.Rating > 10)
 			{
 				return false;
 			}
-
+			  
 			if (componentDAL.IsPcComponetExists(pcComponent.Name, null))
 			{
 				return false;
@@ -42,11 +40,9 @@ namespace PC_Build_Service
 			if (pcComponent == null ||
 				string.IsNullOrEmpty(pcComponent.Name) ||
 				string.IsNullOrEmpty(pcComponent.Brand) ||
-				string.IsNullOrEmpty(pcComponent.Description) ||
 				pcComponent.Type == null ||
 				string.IsNullOrEmpty(pcComponent.Type.Id) ||
 				pcComponent.Price <= 0 ||
-				//pcComponent.Rating <= 0 ||
 				pcComponent.Rating > 10)
 			{
 				return false;
