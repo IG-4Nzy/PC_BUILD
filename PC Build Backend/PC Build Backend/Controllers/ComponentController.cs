@@ -37,5 +37,12 @@ namespace PC_Build_Backend.Controllers
 		{
 			return Ok(Json(componentService.DeleteComponent(id)));
 		}
+
+		[HttpGet]
+		[Route("GetAllComponentsWithType")]
+		public IActionResult GetAllComponentsWithType()
+		{
+			return Ok(Json(componentService.GetAllComponentsWithType()));
+		}
 	}
 }

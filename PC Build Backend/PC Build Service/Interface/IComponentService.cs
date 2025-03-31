@@ -8,5 +8,6 @@ namespace PC_Build_Service.Interface
 		List<PcComponent>? GetAllComponentsInType(string typeId);
 		bool EditComponent(PcComponent pcComponent);
 		bool DeleteComponent(string id);
+		Dictionary<string, List<PcComponent>>? GetAllComponentsWithType();
 	}
 }

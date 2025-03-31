@@ -1,12 +1,14 @@
-﻿using PC_Build_DAL.Interface;
+﻿using System.Collections.Generic;
+using PC_Build_DAL.Interface;
 using PC_Build_Models;
 using PC_Build_Service.Interface;
 
 namespace PC_Build_Service
 {
-	public class ComponentService(IComponentDAL componentDAL) : IComponentService
+	public class ComponentService(IComponentDAL componentDAL, IComponentTypeDAL componentTypeDAL) : IComponentService
 	{
 		private readonly IComponentDAL componentDAL = componentDAL;
+		private readonly IComponentTypeDAL componentTypeDAL = componentTypeDAL;
 
 		public bool AddComponent(PcComponent pcComponent)
 		{
@@ -60,6 +62,31 @@ namespace PC_Build_Service
 		public bool DeleteComponent(string id)
 		{
 			return componentDAL.DeleteComponent(id);
+		}
+
+		public Dictionary<string, List<PcComponent>>? GetAllComponentsWithType()
+		{
+			List<PcComponentType>? pcComponentTypes = componentTypeDAL.GetAllComponentTypes();
+
+			Dictionary<string, List<PcComponent>> componentsWithType = [];
+
+			if (pcComponentTypes == null)
+			{
+				return null;
+			}
+
+			foreach (PcComponentType pcComponentType in pcComponentTypes)
+			{
+				List<PcComponent>? pcComponents = componentDAL.GetAllComponentsInType(pcComponentType.Id);
+				if (pcComponents == null)
+				{
+					return null;
+				}
+
+				componentsWithType[pcComponentType.Id] = pcComponents;
+			}
+
+			return componentsWithType;
 		}
 	}
 }
