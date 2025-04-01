@@ -14,7 +14,7 @@ namespace PC_Build_Backend.Controllers
 		[Route("Login")]
 		public IActionResult Login(LoginData loginData)
 		{
-			return adminService.Login(loginData) ? Ok() : Unauthorized();
+			return Ok(Json(adminService.Login(loginData)));
 		}
 	}
 }
