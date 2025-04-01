@@ -45,6 +45,7 @@ namespace PC_Build_DAL
 
 							foreach (PcComponent pcComponent in preBuild.PcComponents!)
 							{
+								command.Parameters.Clear();
 								if (!AddPreBuildComponents(pcComponent, preBuildId, command))
 								{
 									transaction.Rollback();
@@ -52,6 +53,7 @@ namespace PC_Build_DAL
 								}
 							}
 
+							transaction.Commit();
 							return true;
 						}
 					}
@@ -68,7 +70,7 @@ namespace PC_Build_DAL
 		{
 			try
 			{
-				command.CommandText = "insert into pre_build(" +
+				command.CommandText = "insert into pre_build_component(" +
 											"pre_build_id," +
 											"component_id" +
 										") " +
@@ -77,9 +79,8 @@ namespace PC_Build_DAL
 											"@component_id" +
 											");";
 
-				command.Parameters.Add(databaseFactory.CreateDataParameter("@id", Guid.NewGuid().ToString()));
-				command.Parameters.Add(databaseFactory.CreateDataParameter("@name", pcComponent.Id!));
-				command.Parameters.Add(databaseFactory.CreateDataParameter("@purpose", preBuildId));
+				command.Parameters.Add(databaseFactory.CreateDataParameter("@component_id", pcComponent.Id!));
+				command.Parameters.Add(databaseFactory.CreateDataParameter("@pre_build_id", preBuildId));
 
 				if (command.ExecuteNonQuery() > 0)
 				{
@@ -108,7 +109,7 @@ namespace PC_Build_DAL
 												"from pre_build " +
 												"where purpose=@purpose;";
 
-						databaseFactory.CreateDataParameter("@purpose", purpose);
+						command.Parameters.Add(databaseFactory.CreateDataParameter("@purpose", purpose));
 
 						IDataReader reader = command.ExecuteReader();
 
@@ -139,7 +140,7 @@ namespace PC_Build_DAL
 						return preBuilds;
 					}
 				}
-			}
+			} 
 			catch (Exception ex)
 			{
 				Console.WriteLine(ex.Message);
@@ -158,21 +159,21 @@ namespace PC_Build_DAL
 					using (IDbCommand command = connection.CreateCommand())
 					{
 						command.CommandText = "select " +
-													"pc.id," +
-													"pc.name," +
-													"pc.type," +
-													"pct.name," +
-													"pc.brand," +
-													"pc.price," +
-													"pc.description " +
+													"pc.id pc_id," +
+													"pc.name pc_name," +
+													"pc.type pc_type," +
+													"pct.name pct_name," +
+													"pc.brand pc_brand," +
+													"pc.price pc_price," +
+													"pc.description pc_description " +
 												"from pre_build_component pbc " +
 												"join pc_component pc " +
 												"on pc.id=pbc.component_id " +
-												"join pc_component_type pct" +
+												"join pc_component_type pct " +
 												"on pct.id=pc.type " +
 												"where pbc.pre_build_id=@preBuildId;";
 
-						databaseFactory.CreateDataParameter("@preBuildId", preBuildId);
+						command.Parameters.Add(databaseFactory.CreateDataParameter("@preBuildId", preBuildId));
 
 						IDataReader reader = command.ExecuteReader();
 
@@ -180,16 +181,16 @@ namespace PC_Build_DAL
 						{
 							pcComponents.Add(new()
 							{
-								Id = reader["pc.id"].ToString(),
-								Name = reader["pc.name"].ToString(),
+								Id = reader["pc_id"].ToString(),
+								Name = reader["pc_name"].ToString(),
 								Type = new()
 								{
-									Id = reader["pc.type"].ToString(),
-									Name = reader["pct.name"].ToString(),
+									Id = reader["pc_type"].ToString(),
+									Name = reader["pct_name"].ToString(),
 								},
-								Brand = reader["pc.brand"].ToString(),
-								Price = double.Parse(reader["pc.price"].ToString()),
-								Description = reader["pc.description"].ToString(),
+								Brand = reader["pc_brand"].ToString(),
+								Price = double.Parse(reader["pc_price"].ToString()),
+								Description = reader["pc_description"].ToString(),
 							});
 						}
 
